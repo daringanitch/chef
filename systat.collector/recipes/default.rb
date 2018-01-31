@@ -28,7 +28,7 @@ end
 systemd_unit 'sysstat.timer' do
  content <<-EOU.gsub(/^\s+/, '')
  [Unit]
- Description=Run system activity accounting tool every 10 minutes
+ Description=Run system activity accounting tool every 5 minutes
 
  [Timer]
  OnCalendar=*:00/05
