@@ -1,0 +1,7 @@
+DEPENDENCIES
+  systat.collector
+    path: .
+    metadata: true
+
+GRAPH
+  systat.collector (0.1.0)

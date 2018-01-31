@@ -1,0 +1,20 @@
+[Unit]
+Description=white_picket_notification_service
+
+[Service]
+EnvironmentFile=/etc/default/white_picket
+Type=forking
+WorkingDirectory=/var/pennymacusa-api
+ExecStart=/usr/local/rvm/gems/ruby-2.3.1/wrappers/bundle exec rake notifications:apns --trace
+User=root
+Group=root
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=60s
+StartLimitBurst=3
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=white_picket_notification_service####
+
+[Install]
+WantedBy=multi-user.target
