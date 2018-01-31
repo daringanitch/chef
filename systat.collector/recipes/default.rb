@@ -41,18 +41,3 @@ systemd_unit 'sysstat.timer' do
  action [:create, :enable, :start]
 end
 
-systemd_unit 'foo.service' do
- content <<-EOU.gsub(/^\s+/, '')
- [Unit]
- Description=Foo
-
- [Service]
- ExecStart=/bin/sh -c 'while true; do echo "Running Foo"; sleep 5; done'
- 
-
- [Install]
- WantedBy=multi-user.target
- EOU
-
- action [:create, :enable, :start]
-end
